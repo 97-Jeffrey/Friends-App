@@ -1,0 +1,20 @@
+<h1>All My Friends</h1>
+
+<table>
+  <tr>
+    <th>first_name</th>
+    <th>last_name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Twitter</th>
+  </tr>
+    <% @friends.each do |friend| %>
+    <tr>
+      <td><%= friend.first_name %></td>
+      <td><%= friend.last_name %></td>
+      <td><%= friend.email %></td>
+      <td><%= friend.phone_number %></td>
+      <td><%= friend.twitter %></td>
+    </tr>
+  <% end %>
+</table>

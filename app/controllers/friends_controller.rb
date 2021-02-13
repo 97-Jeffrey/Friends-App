@@ -10,6 +10,18 @@ class FriendsController < ApplicationController
   def new
     @friend = Friend.new
   end
+  def edit
+    @friend = Friend.find(params[:id])
+  end
+
+  def update
+    @friend = Friend.find(params[:id])
+    if @friend.update(friend_params)
+      redirect_to @friend
+    else
+      render "edit" 
+    end
+  end
 
   def create
     @friend  = Friend.new(friend_params)

@@ -16,6 +16,8 @@
       <td><%= friend.email %></td>
       <td><%= friend.phone_number %></td>
       <td><%= friend.twitter %></td>
+      <td><%= link_to "Show", friend_path(friend)%></td>
+      <td><%= link_to "Edit", edit_friend_path(friend)%></td>
     </tr>
   <% end %>
 </table>

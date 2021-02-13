@@ -1,5 +1,21 @@
 <h1>Add a new friend</h1>
 <%= form_for :friend, url: friends_path do |f|%>
+  
+   <% if @friend.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@friend.errors.count, "error") %> prohibited
+        this friend from being saved:
+      </h2>
+      <ul>
+        <% @friend.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <p>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, placeholder: 'Enter First Name' %>

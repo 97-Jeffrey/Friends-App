@@ -8,13 +8,17 @@ class FriendsController < ApplicationController
   end
 
   def new
+    @friend = Friend.new
   end
 
   def create
-    # render plain: params[:friend].inspect
     @friend  = Friend.new(friend_params)
-    @friend.save
-    redirect_to @friend
+
+    if @friend.save
+      redirect_to @friend
+    else 
+      render "new"
+    end
   end
 
   private 

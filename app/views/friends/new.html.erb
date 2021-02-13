@@ -1,0 +1,27 @@
+<h1>Add a new friend</h1>
+<%= form_for :friend, url: friends_path do |f|%>
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, placeholder: 'Enter First Name' %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name, placeholder: 'enter Last Name' %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email, placeholder: 'Enter Email' %>
+  </p>
+  <p>
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number, placeholder: 'Enter Phone Number' %>
+  </p>
+  <p>
+    <%= f.label :tweeter %><br>
+    <%= f.text_field :tweeter, placeholder: 'Enter Tweeter' %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

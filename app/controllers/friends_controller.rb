@@ -17,7 +17,7 @@ class FriendsController < ApplicationController
   def update
     @friend = Friend.find(params[:id])
     if @friend.update(friend_params)
-      redirect_to @friend
+      redirect_to @friend, {notice: "This person's info is updated"}
     else
       render "edit" 
     end
@@ -27,7 +27,7 @@ class FriendsController < ApplicationController
     @friend  = Friend.new(friend_params)
 
     if @friend.save
-      redirect_to @friend
+      redirect_to @friend, {notice: "#{@friend.first_name} was successfully added"}
     else 
       render "new"
     end

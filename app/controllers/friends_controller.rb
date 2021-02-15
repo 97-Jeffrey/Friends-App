@@ -36,7 +36,7 @@ class FriendsController < ApplicationController
   def destroy
     @friend = Friend.find(params[:id])
     @friend.destroy
-    redirect_to friends_path
+    redirect_to friends_path, {notice: "Successfully removed a friend"}
   end
 
   private 

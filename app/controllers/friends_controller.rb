@@ -1,5 +1,6 @@
 class FriendsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only:[:edit, :update, :destroy]
 
   def index
     @friends = Friend.all
@@ -10,6 +11,7 @@ class FriendsController < ApplicationController
 
   def new
     @friend = Friend.new
+    # @friend = current_user.friends.build
   end
   def edit
     @friend = Friend.find(params[:id])
@@ -17,6 +19,7 @@ class FriendsController < ApplicationController
 
   def update
     @friend = Friend.find(params[:id])
+    # @friend = current_user.friends.build(friend_params)
     if @friend.update(friend_params)
       redirect_to @friend, {notice: "This person's info is updated"}
     else
@@ -38,6 +41,11 @@ class FriendsController < ApplicationController
     @friend = Friend.find(params[:id])
     @friend.destroy
     redirect_to friends_path, {notice: "Successfully removed a friend"}
+  end
+
+  def correct_user
+    @friend = current_user.friends.find_by(id: params[:id])
+    redirect_to friends_path, notice: "Not authorized to edit this friend" if @friend.nil?
   end
 
   private 

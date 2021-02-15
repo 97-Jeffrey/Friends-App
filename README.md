@@ -20,5 +20,5 @@ Then add a new friend:
 A new friend is successfully created:
 ![](https://github.com/97-Jeffrey/Friends-App/blob/master/docs/Screen%20Shot%202021-02-15%20at%2012.23.02%20AM.png?raw=true)
 
-The friend is saved to `My friends` section. user can then edit their friends' information, or delete them.
+The friend is saved to `My friends` section. user can then edit their friends' information, or delete them:
 ![](https://github.com/97-Jeffrey/Friends-App/blob/master/docs/Screen%20Shot%202021-02-15%20at%2012.24.49%20AM.png?raw=true)

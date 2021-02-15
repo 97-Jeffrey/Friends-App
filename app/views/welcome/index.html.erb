@@ -3,10 +3,11 @@
 <h3 class="mt-5">You can use this app to add a friend to your friend list, you can also update their info and remove them</h3>
 
 <% if user_signed_in?%>
-<%= link_to 'let\'s go', friends_path, class:"btn btn-secondary mt-5" %>
+  <%= link_to 'let\'s go', friends_path, class:"btn btn-secondary mt-5" %>
 <%else %>
-<div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
-  You need to sign in to use this app
-  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
+  <div class="alert alert-warning alert-dismissible fade show mt-5" role="alert">
+   You need to sign in to use this app
+   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <%= link_to "Sign in", new_user_session_path, class:"btn btn-secondary mt-3"%>
 <% end%>

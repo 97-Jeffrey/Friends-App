@@ -1,8 +1,8 @@
 <h1>All My Friends</h1>
-
+<% if user_signed_in?%>
 <%= link_to "Add a Friend", new_friend_path, class:"btn btn-secondary mt-3 mb-4" %>
 <table class="table table-striped table-bordered">
- <thead class="thead-dark">
+ <thead class="table-dark">
   <tr>
     <th>First Name</th>
     <th>Last Name</th>
@@ -10,9 +10,7 @@
     <th>Phone</th>
     <th>Twitter</th>
     <th>User Id</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th colspan="3"></th>
   </tr>
  </thead>
  <tbody>
@@ -38,3 +36,7 @@
   <% end %>
   </tbody>
 </table>
+<% else %>
+  <div class="alert alert-warning mt-5"> You need to sign in first!</div>
+  <%= link_to "Sign in", new_user_session_path, class:"btn btn-secondary mt-3"%>
+<% end %>

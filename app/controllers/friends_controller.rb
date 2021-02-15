@@ -27,7 +27,7 @@ class FriendsController < ApplicationController
     @friend  = Friend.new(friend_params)
 
     if @friend.save
-      redirect_to @friend, {notice: "#{@friend.first_name} was successfully added"}
+      redirect_to @friend, {notice: "'#{@friend.first_name}' was successfully added"}
     else 
       render "new"
     end
@@ -41,6 +41,6 @@ class FriendsController < ApplicationController
 
   private 
     def friend_params
-      params.require(:friend).permit(:first_name, :last_name, :email, :phone_number,:twitter)
+      params.require(:friend).permit(:first_name, :last_name, :email, :phone_number,:twitter, :user_id)
     end
 end

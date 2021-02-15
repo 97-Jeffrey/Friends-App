@@ -3,7 +3,7 @@
 <%= form_for :friend, url:friends_path do |f| %>
  
   <% if @friend.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2>
         <%= pluralize(@friend.errors.count, "error") %> prohibited
         this article from being saved:
@@ -17,26 +17,24 @@
   <% end %>
  
   <p>
-    <%= f.label :first_name, class:"h3" %><br>
     <%= f.text_field :first_name, class:"form-control", placeholder:"Enter First Name" %>
   </p>
  
   <p>
-    <%= f.label :last_name, class:"h3" %><br>
-    <%= f.text_area :last_name, class:"form-control", placeholder:"Enter Last Name" %>
+    <%= f.text_field :last_name, class:"form-control", placeholder:"Enter Last Name" %>
   </p>
   <p>
-    <%= f.label :email, class:"h3" %><br>
-    <%= f.text_area :email, class:"form-control", placeholder:"Enter Email" %>
+    <%= f.text_field :email, class:"form-control", placeholder:"Enter Email" %>
   </p>
 
   <p>
-    <%= f.label :phone_number, class:"h3" %><br>
-    <%= f.text_area :phone_number, class:"form-control", placeholder:"Enter Phone Number" %>
+    <%= f.text_field :phone_number, class:"form-control", placeholder:"Enter Phone Number" %>
   </p>
   <p>
-    <%= f.label :twitter, class:"h3" %><br>
-    <%= f.text_area :twitter, class:"form-control", placeholder:"Enter Twitter Account" %>
+    <%= f.text_field :twitter, class:"form-control", placeholder:"Enter Twitter Account" %>
+  </p>
+  <p>
+    <%= f.number_field :user_id, id: :friend_user_id, class:"form-control", value:current_user.id, type: :hidden %>
   </p>
  
   <p>
